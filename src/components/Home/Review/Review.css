@@ -1,0 +1,19 @@
+:root{
+    --swiper-theme-color: #11DEDE;
+}
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width,var(--swiper-pagination-bullet-size,30px));
+    height: var(--swiper-pagination-bullet-height,var(--swiper-pagination-bullet-size,4px));
+    display: inline-block;
+    background: #a08484;
+    border: 10px;
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, .2);
+}
+
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--swiper-pagination-color,var(--swiper-theme-color));
+}
+.swiper-pagination-bullet{
+    border-radius: 2px;
+}

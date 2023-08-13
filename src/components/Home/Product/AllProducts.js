@@ -5,11 +5,15 @@ import { AiFillHome } from "react-icons/ai";
 import './Style.css'
 import { useState } from "react";
 import { ImSearch } from "react-icons/im";
+import Pagination from "./Pagination";
 const AllProducts = () => {
     const [product] = useProducts();
     const reverse = [...product].reverse();
     const navigate = useNavigate()
     const [filter, setFilter] = useState("");
+    // Pagination 
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(6);
     const searchEvent = (event) => {
         setFilter(event.target.value);
     };
@@ -22,6 +26,13 @@ const AllProducts = () => {
                 .includes(filter.toString().toLowerCase())
         );
     });
+
+    console.log(dataSeacrch);
+
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentData = dataSeacrch.slice(firstPostIndex, lastPostIndex);
+
     return (
         <>
             <div className="z-10">
@@ -57,10 +68,17 @@ const AllProducts = () => {
                 </div>
             </div>
             <div className="mt-36 grid lg:grid-cols-3 w-10/12 mx-auto gap-x-8 gap-y-8 items-center">
-                {dataSeacrch.map((item) => (
+                {currentData?.map((item) => (
                     <ProductCard item={item} />
                 ))}
             </div>
+
+            <Pagination
+                totalItem={reverse?.length}
+                postsPerPage={postsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+            />
 
         </>
     );

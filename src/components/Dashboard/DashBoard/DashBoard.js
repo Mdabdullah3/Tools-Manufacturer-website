@@ -47,11 +47,6 @@ const DashBoard = () => {
               <li className="text-secondary text-lg w-44  mb-4">
                 <NavLink to="/dashboard/blog"><MdOutlinePostAdd className="text-xl" /> Blogs Post</NavLink>
               </li>
-              <li className="text-secondary text-lg mb-4 w-44">
-                <NavLink to="/dashboard/manageOrder">
-                  < IoMdAppstore className="text-xl" /> All Booking
-                </NavLink>
-              </li>
               <li>
                 <div className="avatar ">
                   <div className="w-20 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 ml-6 mt-10">

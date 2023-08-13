@@ -66,18 +66,7 @@ const Navbar = ({ children }) => {
           Donation
         </NavLink>
       </li>
-      <li>
-        {admin ? (
-          <NavLink
-            to="/dashboard"
-            className="rounded-md  text-secondary text-lg font-semibold p-0 px-5"
-          >
-            Dashboard
-          </NavLink>
-        ) : (
-          " "
-        )}
-      </li>
+
       <li>
         {user ? <li className=' text-white  cursor-pointer'>
 
@@ -101,6 +90,18 @@ const Navbar = ({ children }) => {
                   <Link className="flex items-center px-3 py-3 cursor-pointer text-secondary text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md" to="/addReview">Add Review</Link>
 
                   <Link className="flex items-center px-3 py-3 cursor-pointer text-secondary text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md" to="/applyForJob">Apply for Employe</Link>
+                  <li>
+                    {admin ? (
+                      <NavLink
+                        to="/dashboard"
+                        className="flex items-center px-3 py-3 cursor-pointer text-secondary text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md"
+                      >
+                        Admin Dashbord
+                      </NavLink>
+                    ) : (
+                      ""
+                    )}
+                  </li>
                 </>
                 <button className="flex w-full items-center px-3 py-3 cursor-pointer  text-secondary text-sm focus:outline-none hover:bg-primary hover:text-white rounded-md" onClick={logout} >LOGOUT</button>
               </div>

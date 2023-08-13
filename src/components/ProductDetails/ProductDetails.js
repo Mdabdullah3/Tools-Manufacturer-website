@@ -23,7 +23,7 @@ const ProductDetails = () => {
             <div className="z-10">
                 <div className="-mb-[20px] relative">
                     <div>
-                        <img
+                        <img className=''
                             src="https://weddingdir.net/wp-content/uploads/2021/07/listing-location-ahmedabad-banner.jpg"
                             alt=""
                         />
@@ -67,7 +67,7 @@ const ProductDetails = () => {
                         </div>
                         <div class="flex border-t border-b mb-6 border-primary py-2">
                             <span class="text-secondary">Quantity</span>
-                            <span class="ml-auto text-primary">4</span>
+                            <span class="ml-auto text-primary">1</span>
                         </div>
                         <div class="flex">
                             <span class="title-font font-medium text-2xl text-primary"><span className='text-secondary text-lg'>Price</span> - ${
@@ -80,7 +80,7 @@ const ProductDetails = () => {
                             </button>
                         </div>
                     </div>
-                    <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src={img} />
+                    <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-4/6 h-40 object-cover object-center rounded" src={img} />
                 </div>
             </div>
         </section >

@@ -25,11 +25,13 @@ const AddProducts = () => {
           const events = {
             userName: user.displayName,
             email: data.email,
-            text: data.description,
-            date: data.date,
             name: data.name,
-            titleCode: data.status,
+            price: data.price,
             img: img,
+            minorder: data.minorder,
+            description: data.description,
+            stock: data.stock
+
           };
           // send to your database
           fetch("https://ford-server.onrender.com/products", {

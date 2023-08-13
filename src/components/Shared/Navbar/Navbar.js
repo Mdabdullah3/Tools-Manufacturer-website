@@ -29,7 +29,7 @@ const Navbar = ({ children }) => {
       <li>
         <NavLink
           to="/"
-          className="rounded-md mr-2 text-secondary text-lg font-semibold p-0 px-5 "
+          className="rounded-md  text-secondary text-lg font-semibold p-0 px-5 "
         >
           Home
         </NavLink>
@@ -37,15 +37,23 @@ const Navbar = ({ children }) => {
       <li>
         <NavLink
           to="/blog"
-          className="rounded-md mr-2 text-secondary text-lg font-semibold p-0 px-5"
+          className="rounded-md  text-secondary text-lg font-semibold p-0 px-5"
         >
           Blog
         </NavLink>
       </li>
       <li>
         <NavLink
+          to="/allProducts"
+          className="rounded-md text-secondary text-lg font-semibold p-0 px-5"
+        >
+          Tools
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
           to="/portfolio"
-          className="rounded-md mr-2 text-secondary text-lg font-semibold p-0 px-5"
+          className="rounded-md  text-secondary text-lg font-semibold p-0 px-5"
         >
           Portfolio
         </NavLink>
@@ -53,7 +61,7 @@ const Navbar = ({ children }) => {
       <li>
         <NavLink
           to="/dontation"
-          className="rounded-md mr-2 text-secondary bg-transparent text-lg font-semibold p-0 px-5"
+          className="rounded-md  text-secondary bg-transparent text-lg font-semibold p-0 px-5"
         >
           Donation
         </NavLink>
@@ -62,7 +70,7 @@ const Navbar = ({ children }) => {
         {admin ? (
           <NavLink
             to="/dashboard"
-            className="rounded-md mr-2 text-secondary text-lg font-semibold p-0 px-5"
+            className="rounded-md  text-secondary text-lg font-semibold p-0 px-5"
           >
             Dashboard
           </NavLink>
@@ -102,7 +110,7 @@ const Navbar = ({ children }) => {
 
         </li> : <NavLink
           to="/login"
-          className="rounded-md mr-2 text-secondary text-lg font-semibold p-0 px-5"
+          className="rounded-md  text-secondary text-lg font-semibold p-0 px-5"
         >
           Login
         </NavLink>}

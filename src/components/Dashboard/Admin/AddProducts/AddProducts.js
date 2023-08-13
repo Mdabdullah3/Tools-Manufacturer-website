@@ -41,7 +41,7 @@ const AddProducts = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              toast.success("Gallery succesfully Added");
+              toast.success("Product succesfully Added");
             });
           console.log(data)
         }

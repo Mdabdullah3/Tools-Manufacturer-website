@@ -62,17 +62,17 @@ const YourBookings = () => {
         return accumulator + object?.price;
     }, 0);
 
-    // const cancleOrder = (id) => {
-    //     fetch(`https://ford-server.onrender.com/orders/cancel/${id}`, {
-    //         method: "PUT",
-    //     })
-    //         .then((res) => res.json())
-    //         .then((data) => {
-    //             console.log(data);
+    const cancleOrder = (id) => {
+        fetch(`https://ford-server.onrender.com/orders/cancel/${id}`, {
+            method: "PUT",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
 
-    //             toast.success("Status Changes");
-    //         });
-    // }
+                toast.success("Status Changes");
+            });
+    }
 
     return (
         <div className="">
@@ -140,9 +140,9 @@ const YourBookings = () => {
                                                     <p className="py-4 ">
                                                         <textarea className="textarea w-3/4 bg-white text-black" placeholder="Please write on the valid reason" required></textarea>
                                                     </p>
-                                                    {/* <button> <label htmlFor="my-modal-3" className="bg-primary uppercase px-6 py-2 rounded text-white" onClick={() => cancleOrder(data._id)}>Confirm
+                                                    <button> <label htmlFor="my-modal-3" className="bg-primary uppercase px-6 py-2 rounded text-white" onClick={() => cancleOrder(data._id)}>Confirm
                                                     </label>
-                                                    </button> */}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>

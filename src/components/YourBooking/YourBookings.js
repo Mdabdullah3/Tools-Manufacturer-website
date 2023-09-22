@@ -63,15 +63,22 @@ const YourBookings = () => {
     }, 0);
 
     const cancleOrder = (id) => {
-        fetch(`https://ford-server.onrender.com/orders/cancel/${id}`, {
-            method: "PUT",
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
+        const proced = window.confirm("Are Your Sure Delete This User");
+        if (proced) {
+            const url = `https://ford-server.onrender.com/myOrders/${id}`;
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((data) => {
 
-                toast.success("Status Changes");
-            });
+                    const reamingData = user.filter((user) => user._id !== id);
+                    setData(reamingData);
+                    console.log('yes');
+
+                    toast.success("Succesfully Delete User");
+                });
+        };
     }
 
     return (
@@ -128,21 +135,14 @@ const YourBookings = () => {
                                             {
                                                 item?.status ?
                                                     " " :
-                                                    <p className="text-base xl:text-lg  leading-6 text-secondary"> <label htmlFor="my-modal-3" onClick={() => setData(item)} className=" uppercase btn  text-white cursor-pointer btn-primary">Cancel</label>
-                                                    </p>
+                                                    <button onClick={() => cancleOrder(item._id)} className="text-base xl:text-lg leading-6 text-secondary"> <p className="uppercase btn  text-white cursor-pointer btn-primary">Cancel</p>
+                                                    </button>
                                             }
-
                                             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
                                             <div className="modal mt-10">
                                                 <div className="modal-box relative text-seondary bg-info">
-                                                    <label htmlFor="my-modal-3" onClick={crossHandle} className=" btn-sm btn-circle absolute right-0 top-3 text-2xl font-bold text-primary">✕</label>
-                                                    <h3 className="text-lg font-bold text-secondary">Are you sure to cancle {data.product}</h3>
-                                                    <p className="py-4 ">
-                                                        <textarea className="textarea w-3/4 bg-white text-black" placeholder="Please write on the valid reason" required></textarea>
-                                                    </p>
-                                                    <button> <label htmlFor="my-modal-3" className="bg-primary uppercase px-6 py-2 rounded text-white" onClick={() => cancleOrder(data._id)}>Confirm
-                                                    </label>
-                                                    </button>
+
+
                                                 </div>
                                             </div>
                                         </div>

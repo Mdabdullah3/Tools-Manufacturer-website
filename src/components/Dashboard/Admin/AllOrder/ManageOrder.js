@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 const ManageOrder = () => {
   const [allORders, setAllOrders] = useState([]);
   useEffect(() => {
-    const url = `https://salty-fortress-85484.herokuapp.com/myOrders`;
+    const url = `https://ford-server.onrender.com/myOrders`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAllOrders(data));

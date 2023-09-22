@@ -10,7 +10,7 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
   useEffect(() => {
     const email = user.email;
-    const url = `https://salty-fortress-85484.herokuapp.com/myitems?email=${email}`;
+    const url = `https://ford-server.onrender.com/myitems?email=${email}`;
     fetch(url, {
       method: "GET",
       headers: {
@@ -33,7 +33,7 @@ const MyOrders = () => {
   const handleDeleteProduct = (id) => {
     const proced = window.confirm("Are Your Sure Delete Items");
     if (proced) {
-      const url = `https://salty-fortress-85484.herokuapp.com/myOrders/${id}`;
+      const url = `https://ford-server.onrender.com/myOrders/${id}`;
       fetch(url, {
         method: "DELETE",
       })

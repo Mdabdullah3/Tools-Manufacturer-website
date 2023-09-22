@@ -81,7 +81,7 @@ const OrderSummery = () => {
             phone: phone,
             date: formattedDate
         };
-        fetch("https://salty-fortress-85484.herokuapp.com/myOrders", {
+        fetch("https://ford-server.onrender.com/myOrders", {
             method: "POST",
             headers: {
                 "content-type": "application/json; charset=UTF-8",

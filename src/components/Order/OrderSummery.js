@@ -91,7 +91,7 @@ const OrderSummery = () => {
             .then((res) => res.json())
             .then((result) => {
                 toast.success("Proudct Succesfull Added, Check Collection");
-                navigate(`/`)
+                navigate(`/myBooking`)
             });
     }
     return (

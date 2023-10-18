@@ -6,22 +6,30 @@ import auth from '../../../../firebase.init';
 
 const AddProducts = () => {
   const { register, reset, handleSubmit } = useForm();
-  const imgStorageKey = "58d3c7355cf533547f2645e98915da5c";
+  const cloudinaryCloudName = 'dzhlxua9i'; // Replace with your Cloudinary cloud name
+  const cloudinaryApiKey = '631779814765246'; // Replace with your Cloudinary API key
+  const cloudinaryUploadPreset = 'ecommerce_product_images'; // Create an upload preset in Cloudinary
+
   const [user] = useAuthState(auth);
-  console.log(user)
+  console.log(user);
+
   const onSubmit = (data) => {
     const image = data.image[0];
     const formData = new FormData();
-    formData.append("image", image);
-    const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imgStorageKey}`;
-    fetch(url, {
-      method: "POST",
+
+    // Append the image to the form data
+    formData.append('file', image);
+    formData.append('upload_preset', cloudinaryUploadPreset);
+
+    // Upload the image to Cloudinary
+    fetch(`https://api.cloudinary.com/v1_1/${cloudinaryCloudName}/image/upload`, {
+      method: 'POST',
       body: formData,
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.success) {
-          const img = result.data.url;
+        if (result.url) {
+          const img = result.url;
           const events = {
             userName: user.displayName,
             email: data.email,
@@ -30,26 +38,26 @@ const AddProducts = () => {
             img: img,
             minorder: data.minorder,
             description: data.description,
-            stock: data.stock
-
+            stock: data.stock,
           };
-          // send to your database
-          fetch("https://ford-server.onrender.com/products", {
-            method: "POST",
+
+          // Send data to your database
+          fetch('https://ford-server.onrender.com/products', {
+            method: 'POST',
             headers: {
-              "content-type": "application/json; charset=UTF-8",
+              'Content-Type': 'application/json',
             },
             body: JSON.stringify(events),
           })
             .then((res) => res.json())
             .then((data) => {
-              toast.success("Product succesfully Added");
+              toast.success('Product successfully Added');
             });
-          console.log(data)
         }
       });
+
     reset();
-  };
+  }
   return (
     <section className="mt-6 p-6 mx-auto">
       <form onSubmit={handleSubmit(onSubmit)}>
